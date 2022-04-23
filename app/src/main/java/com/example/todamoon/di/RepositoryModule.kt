@@ -2,8 +2,10 @@ package com.example.todamoon.di
 
 import com.example.todamoon.data.csv.CSVParser
 import com.example.todamoon.data.csv.CompanyListingsParser
+import com.example.todamoon.data.csv.IntradayInfoParser
 import com.example.todamoon.data.repository.StockRepositoryImpl
 import com.example.todamoon.domain.model.CompanyListing
+import com.example.todamoon.domain.model.IntradayInfo
 import com.example.todamoon.domain.repository.StockRepository
 import dagger.Binds
 import dagger.Module
@@ -22,6 +24,11 @@ abstract class RepositoryModule {
         companyListingsParser: CompanyListingsParser
     ): CSVParser<CompanyListing>
 
+    @Binds
+    @Singleton
+    abstract fun bindIntradayInfoParser(
+        intradayInfoParser: IntradayInfoParser
+    ): CSVParser<IntradayInfo>
 
     @Binds
     @Singleton
